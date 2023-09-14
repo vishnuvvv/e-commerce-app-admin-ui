@@ -10,9 +10,9 @@ const Navbar = () => {
           <span className="logo">shope-admin</span>
         </div>
         <div className="nav-right">
-          <div className="navbar-icons">
+          <div className="navbar-icons-container">
             <NotificationsNone/>
-            <span className="nav-icon-badge">2</span>
+            <span className="notifi-icon-badge">2</span>
           </div>
         </div>
       </div>
