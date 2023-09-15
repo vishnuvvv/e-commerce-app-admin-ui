@@ -9,17 +9,17 @@ const Sidebar = () => {
         <div className="sidebar-menu">
           <h3 className="sidebar-title">Dashboard</h3>
           <ul className="sidebar-list">
-            <li className="sidebar-list-item">
-              <LineStyle />
-              Home 
+            <li className="sidebar-list-item active">
+              <LineStyle className="sidebar-icon" />
+              Home
             </li>
             <li className="sidebar-list-item">
-              <Timeline />
-              Home 
+              <Timeline className="sidebar-icon" />
+              Analytics
             </li>
             <li className="sidebar-list-item">
-              <TrendingUp />
-              Home 
+              <TrendingUp className="sidebar-icon" />
+              Sales
             </li>
           </ul>
         </div>
