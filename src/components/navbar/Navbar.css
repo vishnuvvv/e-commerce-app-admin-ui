@@ -1,7 +1,7 @@
 .navbar {
   width: 100%;
   height: 50px;
-  background-color: white;
+  background-color: rgb(1, 86, 86);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -17,7 +17,7 @@
 .logo {
   font-weight: bold;
   font-size: 30px;
-  color: rgb(1, 86, 86);
+  color: white;
   cursor: pointer;
 }
 .nav-right {
@@ -28,7 +28,7 @@
   position: relative;
   cursor: pointer;
   margin-right: 10px;
-  color: #555;
+  color: rgb(170, 212, 214);
 }
 .notifi-icon-badge {
   position: absolute;
