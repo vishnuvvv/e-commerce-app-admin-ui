@@ -17,8 +17,8 @@ const Home = () => {
         dataKey="Active Users"
       />
       <div className="home-widgets">
-       <WidgetLarge/>
-       <WidgetSmall/>
+        <WidgetSmall />
+        <WidgetLarge />
       </div>
     </div>
   );
