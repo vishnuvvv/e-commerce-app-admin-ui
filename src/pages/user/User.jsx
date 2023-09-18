@@ -15,7 +15,7 @@ const User = () => {
     <div className="user-details">
       <div className="user-title-container">
         <h1 className="user-title">Edit User</h1>
-        <Link to="newUser">
+        <Link to="/new-user">
         <button className="user-add-button">Create</button>
         </Link>
       </div>

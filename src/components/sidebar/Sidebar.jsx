@@ -12,8 +12,9 @@ import {
   DynamicFeed,
   ChatBubbleOutline,
   WorkOutline,
-  Report,}
-  from "@mui/icons-material";
+  Report,
+} from "@mui/icons-material";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -39,14 +40,18 @@ const Sidebar = () => {
         <div className="sidebar-menu">
           <h3 className="sidebar-title">Staffs</h3>
           <ul className="sidebar-list">
-            <li className="sidebar-list-item active">
-              <PermIdentity className="sidebar-icon" />
-              Users
-            </li>
-            <li className="sidebar-list-item">
-              <Storefront  className="sidebar-icon" />
-              Products
-            </li>
+            <Link to="/users" className="link">
+              <li className="sidebar-list-item active">
+                <PermIdentity className="sidebar-icon" />
+                Users
+              </li>
+            </Link>
+            <Link to="products" className="link">
+              <li className="sidebar-list-item">
+                <Storefront className="sidebar-icon" />
+                Products
+              </li>
+            </Link>
             <li className="sidebar-list-item">
               <AttachMoney className="sidebar-icon" />
               Transactions
@@ -63,7 +68,7 @@ const Sidebar = () => {
           <ul className="sidebar-list">
             <li className="sidebar-list-item active">
               <MailOutline className="sidebar-icon" />
-              Mail 
+              Mail
             </li>
             <li className="sidebar-list-item">
               <DynamicFeed className="sidebar-icon" />
@@ -88,13 +93,11 @@ const Sidebar = () => {
               Analytics
             </li>
             <li className="sidebar-list-item">
-              <Report   className="sidebar-icon" />
-              Reports 
+              <Report className="sidebar-icon" />
+              Reports
             </li>
           </ul>
         </div>
-
-        
       </div>
     </div>
   );
