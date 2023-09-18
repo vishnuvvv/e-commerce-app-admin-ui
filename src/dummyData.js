@@ -48,3 +48,53 @@ export const userData = [
       "Active Users": 5490,
     },
   ];
+
+ 
+
+ export const userRows = [
+    {
+      id: 1,
+      username: "Jon snow",
+      avatar:
+        "https://img.freepik.com/premium-photo/digital-art-selected_771335-49726.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph",
+      email: "johnsnow@gmail.com",
+      status: "active",
+      transactions: "Rs.5986.00",
+    },
+    {
+      id: 2,
+      username: "Jon snow",
+      avatar:
+        "https://img.freepik.com/premium-photo/digital-art-selected_771335-49726.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph",
+      email: "johnsnow@gmail.com",
+      status: "active",
+      transactions: "Rs.5986.00",
+    },
+    {
+      id: 3,
+      username: "Jon snow",
+      avatar:
+        "https://img.freepik.com/premium-photo/digital-art-selected_771335-49726.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph",
+      email: "johnsnow@gmail.com",
+      status: "active",
+      transactions: "Rs.5986.00",
+    },
+    {
+      id: 4,
+      username: "Jon snow",
+      avatar:
+        "https://img.freepik.com/premium-photo/digital-art-selected_771335-49726.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph",
+      email: "johnsnow@gmail.com",
+      status: "active",
+      transactions: "Rs.5986.00",
+    },
+    {
+      id: 5,
+      username: "Jon snow",
+      avatar:
+        "https://img.freepik.com/premium-photo/digital-art-selected_771335-49726.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph",
+      email: "johnsnow@gmail.com",
+      status: "active",
+      transactions: "Rs.5986.00",
+    },
+  ];
