@@ -3,9 +3,9 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import User from "./pages/user/User";
 const Home = lazy(() => import("./pages/home/Home.jsx"));
-const Userlist = lazy(() => import("./pages/useList/Userlist"));
+const Userlist = lazy(() => import("./pages/userlist/Userlist"));
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/users" element={<Userlist />} />
+            <Route path="/user/:userId" element={<User />} />
           </Routes>
         </Suspense>
       </div>

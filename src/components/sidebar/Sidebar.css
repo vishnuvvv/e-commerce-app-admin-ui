@@ -4,9 +4,9 @@
   background-color: rgb(233, 252, 252);
   position: sticky;
   top: 50px;
-  box-shadow: 0px 0px 30px -4px rgba(53, 171, 171, 0.46);
-  -webkit-box-shadow: 0px 0px 30px -4px rgba(53, 171, 171, 0.46);
-  -moz-box-shadow: 0px 0px 30px -4px rgba(53, 171, 171, 0.46);
+  -webkit-box-shadow: 0px 0px 8px -3px rgba(40, 141, 143, 1);
+  -moz-box-shadow: 0px 0px 8px -3px rgba(40, 141, 143, 1);
+  box-shadow: 0px 0px 8px -3px rgba(40, 141, 143, 1);
 }
 .sidebar-wrapper {
   padding: 20px;
