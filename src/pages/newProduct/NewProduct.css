@@ -1,2 +1,61 @@
 .new-product {
+  flex: 4;
+}
+.user-updat-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.user-updat-left-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.user-update-label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.user-update-input {
+  border: none;
+  width: 250px;
+  height: 30px;
+  border-bottom: 1px solid rgb(168, 225, 223);
+}
+.user-upload-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.user-update-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-update-upload {
+  display: flex;
+  align-items: center;
+}
+.use-update-icon-right {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  color: teal !important;
+  -moz-box-shadow: 0px 0px 8px -3px rgba(40, 141, 143, 1);
+  box-shadow: 0px 0px 8px -3px rgba(40, 141, 143, 1);
+  margin-left: 12px !important;
+}
+
+.user-update-btn-right {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: goldenrod;
+  color: whitesmoke;
+  font-weight: 600;
 }

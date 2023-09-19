@@ -133,13 +133,12 @@
   margin-left: 12px !important;
 }
 
-.user-update-btn-right{
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    background-color: goldenrod;
-    color: whitesmoke;
-    font-weight: 600;
+.user-update-btn-right {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: goldenrod;
+  color: whitesmoke;
+  font-weight: 600;
 }
-
