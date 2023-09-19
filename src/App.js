@@ -2,11 +2,13 @@ import React, { lazy, Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
+import ProductList from "./pages/productList/ProductList";
+import Product from "./pages/product/Product";
 const Home = lazy(() => import("./pages/home/Home.jsx"));
-const Userlist = lazy(() => import("./pages/userlist/Userlist"));
+const Userlist = lazy(() => import("./pages/userList/Userlist"));
 
 const App = () => {
   return (
@@ -20,6 +22,9 @@ const App = () => {
             <Route path="/users" element={<Userlist />} />
             <Route path="/user/:userId" element={<User />} />
             <Route path="/new-user" element={<NewUser />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/product/:id" element={<Product/>} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
       </div>
