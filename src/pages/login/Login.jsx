@@ -15,7 +15,7 @@ const Login = () => {
     login(dispatch, { username, password });
   };
   return (
-    <div>
+    <div className="login-container">
       <input
         type="text"
         placeholder="username"
