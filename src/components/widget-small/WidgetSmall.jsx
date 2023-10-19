@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./WidgetSmall.css";
 import { Visibility } from "@mui/icons-material";
 
 const WidgetSmall = () => {
+  const [users, setUsers] = useState([]);
   return (
     <div className="widget-small">
       <span className="sm-widget-title">New Joiners</span>
