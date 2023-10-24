@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./Home.css";
 import FeaturedInfo from "../../components/featured-info/FeaturedInfo";
 import Chart from "../../components/chart/Chart";
-import { userData } from "../../dummyData";
+//import { userData } from "../../dummyData";
 import WidgetLarge from "../../components/widget-large/WidgetLarge";
 import WidgetSmall from "../../components/widget-small/WidgetSmall";
 import { userRequest } from "../../config/requestMethods";
@@ -33,7 +33,7 @@ const Home = () => {
     const getStats = async () => {
       try {
         const res = await userRequest.get("/api/user/get-users-stats");
-        console.log(res);
+        console.log(res.data);
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,
