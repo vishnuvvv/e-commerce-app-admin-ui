@@ -1,7 +1,12 @@
 import { loginStart, loginSucces, loginFailure } from "./userSlice";
 import { publicRequest } from "../config/requestMethods";
+import {
+  getProductFailure,
+  getProductStart,
+  getProductSuccess,
+} from "./productSlice";
 
-const login = async (dispatch, user) => {
+export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
     const response = await publicRequest.post("/api/auth/login", user);
@@ -11,4 +16,12 @@ const login = async (dispatch, user) => {
   }
 };
 
-export default login;
+export const getProducts = async (dispatch) => {
+  dispatch(getProductStart());
+  try {
+    const res = await publicRequest.get("api/products/get-all-products");
+    dispatch(getProductSuccess(res.data));
+  } catch (error) {
+    dispatch(getProductFailure());
+  }
+};
