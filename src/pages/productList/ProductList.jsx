@@ -6,18 +6,20 @@ import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/apiCalls";
+import { deleteProducts, getProducts } from "../../redux/apiCalls";
 
 const ProductList = () => {
-  const [data, setData] = useState(productRows);
+  //const [data, setData] = useState(productRows);
   const dispatch = useDispatch();
-
   const products = useSelector((state) => state.product.products);
-
 
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    deleteProducts(id, dispatch);
+  };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 240 },
@@ -43,13 +45,13 @@ const ProductList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link to={"/product/" + params.row._id}>
               <button className="product-list-edit">Edit</button>
             </Link>
 
             <DeleteOutline
               className="product-list-delete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -57,9 +59,6 @@ const ProductList = () => {
     },
   ];
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
   return (
     <div className="product-list">
       <DataGrid
