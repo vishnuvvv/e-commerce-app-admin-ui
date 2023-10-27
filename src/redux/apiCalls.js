@@ -7,6 +7,12 @@ import {
   getProductFailure,
   getProductStart,
   getProductSuccess,
+  updateProductFailure,
+  updateProductStart,
+  updateProductSuccess,
+  addProductFailure,
+  addProductStart,
+  addProductSuccess,
 } from "./productSlice";
 
 export const login = async (dispatch, user) => {
@@ -36,5 +42,25 @@ export const deleteProducts = async (id, dispatch) => {
     dispatch(deleteProductSuccess(id));
   } catch (error) {
     dispatch(deleteProductFailure());
+  }
+};
+
+export const updateProducts = async (id, product, dispatch) => {
+  dispatch(updateProductStart());
+  try {
+    await userRequest.put(`api/products/update-product/${id}`);
+    dispatch(updateProductSuccess({ id, product }));
+  } catch (error) {
+    dispatch(updateProductFailure());
+  }
+};
+
+export const addProducts = async (product, dispatch) => {
+  dispatch(addProductStart());
+  try {
+    const res = await userRequest.post(`api/products/add-product/`, { product });
+    dispatch(addProductSuccess(res.data));
+  } catch (error) {
+    dispatch(addProductFailure());
   }
 };

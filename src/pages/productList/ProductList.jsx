@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./ProductList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
-import { productRows } from "../../dummyData";
+// import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProducts, getProducts } from "../../redux/apiCalls";
 
