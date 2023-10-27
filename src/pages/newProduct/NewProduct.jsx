@@ -8,29 +8,43 @@ const NewProduct = () => {
       <form className="user-updat-form">
         <div className="user-update-left">
           <div className="user-updat-left-item">
-            <lable className="user-update-label">Name</lable>
+            <lable className="user-update-label">Title</lable>
             <input
               type="text"
               placeholder="apple airpod"
               className="user-update-input"
             />
           </div>
-
           <div className="user-updat-left-item">
-            <lable>Stock</lable>
+            <lable className="user-update-label">Price</lable>
             <input
               type="text"
-              placeholder="213"
+              placeholder="ex:100"
               className="user-update-input"
             />
           </div>
           <div className="user-updat-left-item">
-            <label>Active</label>
-            <select name="active" id="active">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
+            <lable className="user-update-label">Description</lable>
+            <input
+              type="text"
+              placeholder="description"
+              className="user-update-input"
+            />
           </div>
+
+          <div className="user-updat-left-item">
+            <lable>Stock</lable>
+            <select>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+            {/* <input
+              type="text"
+              placeholder="213"
+              className="user-update-input"
+            /> */}
+          </div>
+    
         </div>
         <div className="user-update-right">
           <div className="user-update-upload">
