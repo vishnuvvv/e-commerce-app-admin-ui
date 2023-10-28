@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-
 import "./NewProduct.css";
 import { Publish } from "@mui/icons-material";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../config/firebase";
+
+
 const NewProduct = () => {
   const [inputs, setInputs] = useState({});
   const [image, setImage] = useState(null);
@@ -14,10 +22,6 @@ const NewProduct = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   console.log(inputs);
   console.log(cat);
   console.log(image);
@@ -25,6 +29,45 @@ const NewProduct = () => {
   const handleCategories = (e) => {
     setCat(e.target.value.split(","));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const fileName = new Date().getTime() + image.name;
+    console.log(fileName)
+    const storage = getStorage(app);
+    console.log(storage)
+
+    const storageRef = ref(fileName, storage);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+        }
+      },
+      (error) => {
+       console.log(error)
+      },
+      () => {
+       
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+        });
+      }
+    );
+  };
+
   return (
     <div className="new-product">
       <form className="user-updat-form">
@@ -77,11 +120,6 @@ const NewProduct = () => {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
-            {/* <input
-              type="text"
-              placeholder="213"
-              className="user-update-input"
-            /> */}
           </div>
         </div>
         <div className="user-update-right">
@@ -95,11 +133,10 @@ const NewProduct = () => {
               <Publish className="use-update-icon-right" />
             </label>
             <input
-              name="img"
               type="file"
               id="file"
+              onChange={(e) => setImage(e.target.files[0])}
               style={{ display: "none" }}
-              onChange={(e) => setImage(e.target.files)[0]}
             />
           </div>
           <button className="user-update-btn-right" onClick={handleSubmit}>
