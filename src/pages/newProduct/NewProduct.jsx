@@ -8,11 +8,14 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../../config/firebase";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/apiCalls";
 
 const NewProduct = () => {
   const [inputs, setInputs] = useState({});
   const [image, setImage] = useState(null);
   const [cat, setCat] = useState([]);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -59,7 +62,8 @@ const NewProduct = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
+          const product = { ...inputs, img: downloadURL, categories: cat };
+          addProduct(product, dispatch);
         });
       }
     );
@@ -114,8 +118,8 @@ const NewProduct = () => {
           <div className="user-updat-left-item">
             <lable>Stock</lable>
             <select name="instock" onChange={handleChange}>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
             </select>
           </div>
         </div>
