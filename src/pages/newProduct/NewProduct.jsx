@@ -9,7 +9,6 @@ import {
 } from "firebase/storage";
 import app from "../../config/firebase";
 
-
 const NewProduct = () => {
   const [inputs, setInputs] = useState({});
   const [image, setImage] = useState(null);
@@ -33,16 +32,15 @@ const NewProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fileName = new Date().getTime() + image.name;
-    console.log(fileName)
+    console.log(fileName);
     const storage = getStorage(app);
-    console.log(storage)
+    console.log(storage);
 
-    const storageRef = ref(fileName, storage);
+    const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
@@ -57,10 +55,9 @@ const NewProduct = () => {
         }
       },
       (error) => {
-       console.log(error)
+        console.log(error);
       },
       () => {
-       
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
         });
@@ -125,7 +122,7 @@ const NewProduct = () => {
         <div className="user-update-right">
           <div className="user-update-upload">
             <img
-              src="https://img.freepik.com/free-photo/young-woman-with-round-glasses-yellow-sweater_273609-7091.jpg?size=626&ext=jpg&ga=GA1.1.404061632.1692293053&semt=sph"
+              src="https://img.favpng.com/5/16/10/clip-art-product-computer-icons-avatar-logo-png-favpng-b7TLrYx6Uqp661BrMRmvzWdZY.jpg"
               alt=""
               className="user-upload-image"
             />
