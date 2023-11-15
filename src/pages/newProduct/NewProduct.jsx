@@ -15,6 +15,8 @@ const NewProduct = () => {
   const [inputs, setInputs] = useState({});
   const [image, setImage] = useState(null);
   const [cat, setCat] = useState([]);
+  const [colors, setColors] = useState([]);
+  const [size, setSize] = useState([]);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -27,9 +29,18 @@ const NewProduct = () => {
   console.log(inputs);
   console.log(cat);
   console.log(image);
+  console.log(colors);
 
   const handleCategories = (e) => {
     setCat(e.target.value.split(","));
+  };
+
+  const handleColors = (e) => {
+    setColors(e.target.value.split(","));
+  };
+
+  const handleSize = (e) => {
+    setSize(e.target.value.split(","));
   };
 
   const handleSubmit = (e) => {
@@ -62,7 +73,13 @@ const NewProduct = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...inputs, img: downloadURL, categories: cat };
+          const product = {
+            ...inputs,
+            img: downloadURL,
+            categories: cat,
+            color: colors,
+            size,
+          };
           addProduct(product, dispatch);
         });
       }
@@ -112,6 +129,26 @@ const NewProduct = () => {
               placeholder="add`,`after each cat ex:jeans,pants,shirts"
               className="user-update-input"
               name="categories"
+            />
+          </div>
+          <div className="user-updat-left-item">
+            <lable className="user-update-label">Colors (use hex code)</lable>
+            <input
+              onChange={handleColors}
+              type="text"
+              placeholder="add`,`after each color ex:black,red,blue"
+              className="user-update-input"
+              name="color"
+            />
+          </div>
+          <div className="user-updat-left-item">
+            <lable className="user-update-label">Size</lable>
+            <input
+              onChange={handleSize}
+              type="text"
+              placeholder="add`,`after each color ex:X,XL,M,L,S"
+              className="user-update-input"
+              name="size"
             />
           </div>
 
